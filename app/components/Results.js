@@ -4,6 +4,9 @@ import {FaCompass, FaBriefcase, FaUsers, FaUserFriends, FaCode, FaUser }  from '
 import Card from './Card'
 import Loading from './Loading'
 import PropTypes from 'prop-types'
+import Tooltip from './Tooltip'
+
+
 
 function ProfileList({ profile }) {
   return (
@@ -14,27 +17,32 @@ function ProfileList({ profile }) {
       </li>
       {profile.location && (
         <li>
-          <FaCompass color='rgb(144, 115, 255)' size={22} />
-          {profile.location}
+          <Tooltip text="User's location">
+            <FaCompass color='rgb(144, 115, 255)' size={22} />
+            {profile.location}
+          </Tooltip>
         </li>
       )}
       {profile.company && (
         <li>
-          <FaBriefcase color='#795548' size={22} />
-          {profile.company}
+          <Tooltip text="User's company">
+            <FaBriefcase color='#795548' size={22} />
+            {profile.company}
+          </Tooltip>
         </li>
       )}
       <li>
         <FaUsers color='rgb(129, 195, 245)' size={22} />
         {profile.followers.toLocaleString()} followers
-            </li>
+      </li>
       <li>
         <FaUserFriends color='rgb(64, 183, 95)' size={22} />
         {profile.following.toLocaleString()} following
-            </li>
+      </li>
     </ul>
   )
 }
+
 
 ProfileList.propTypes = {
   profile: PropTypes.object.isRequired,
