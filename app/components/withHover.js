@@ -26,9 +26,7 @@ function withHover (Component, propName = 'hovering') {
       hovering: false
     })
   }
-  }
-
-
+  
   render () {
     const props = {
       [propName]: this.state.hovering,
@@ -43,4 +41,6 @@ function withHover (Component, propName = 'hovering') {
       </div>
     )
   }
+
+}
 }
